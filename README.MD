@@ -1,3 +1,9 @@
+# Re:culture shields
+
+Simple shield generator for Re:Culture. 
+
+Uses the awesome [Shields.io](http://shields.io/) for actual shield generation.
+
 ## In terminal
 
 ```

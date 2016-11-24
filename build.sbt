@@ -1,4 +1,4 @@
-name := """shields-badge"""
+name := """reculture-shields"""
 
 version := "1.0-SNAPSHOT"
 
@@ -7,6 +7,7 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 scalaVersion := "2.11.8"
 
 libraryDependencies ++= Seq(
+  "com.netaporter" %% "scala-uri" % "0.4.16",
   ws
 )
 
@@ -40,3 +41,22 @@ def resolveHerokuApp() = {
   def fromAppName(): Option[String] = sys.props.get("herokuApp")
   fromAppEnv().orElse(fromAppName()).getOrElse("culture-badge-test")
 }
+
+scalacOptions ++= Seq(
+  "-deprecation",
+  "-encoding",
+  "UTF-8", // yes, this is 2 args
+  "-feature",
+  "-language:existentials",
+  "-language:higherKinds",
+  "-language:implicitConversions",
+  "-unchecked",
+  "-Xfatal-warnings",
+  "-Xlint",
+  "-Yno-adapted-args",
+  "-Ywarn-dead-code", // N.B. doesn't work well with the ??? hole
+  "-Ywarn-numeric-widen",
+  "-Ywarn-value-discard",
+  "-Xfuture",
+  "-Ywarn-unused-import" // 2.11 only
+)

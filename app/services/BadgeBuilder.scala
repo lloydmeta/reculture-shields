@@ -1,7 +1,7 @@
 package services
 
-import java.net.URI
-
+import com.netaporter.uri.Uri
+import com.netaporter.uri.dsl._
 import org.culture.{OrgId, OrgInfo}
 import play.api.libs.ws.{StreamedResponse, WSClient}
 
@@ -31,12 +31,9 @@ class BadgeBuilder(wsClient: WSClient)(implicit val ec: ExecutionContext) {
   }
 
   private def getBadge(info: OrgInfo): Future[StreamedResponse] = {
-    val badgeName = s"Re:Culture-${info.name}:${info.status}-blue"
-    val uri = new URI(s"https://img.shields.io/badge/$badgeName.svg")
-    wsClient
-      .url(uri.toASCIIString)
-      .withQueryString("style" -> "plastic")
-      .stream()
+    val badgeName = s"Re:Culture-${info.name} ${info.status}-blue"
+    val uri: Uri = s"https://img.shields.io/badge/$badgeName.svg"
+    wsClient.url(uri).withQueryString("style" -> "plastic").stream()
   }
 
 }

@@ -5,12 +5,12 @@ import play.api.mvc.Results._
 import play.api.mvc._
 import play.api.routing.Router
 import play.api.routing.sird._
-import wiring.Modules
+import wiring.Components
 
 class WebApp extends ApplicationLoader {
 
-  private val module = new Modules
-  import module._
+  private val components = new Components
+  import components._
 
   def load(context: Context) =
     new BuiltInComponentsFromContext(context) {

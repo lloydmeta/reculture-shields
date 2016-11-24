@@ -8,7 +8,7 @@ import services.BadgeBuilder
 /**
   * Just a container that holds various module we need for the web app
   */
-class Modules {
+class Components {
 
   // Just use defaults for now
   implicit val actorSystem = ActorSystem()

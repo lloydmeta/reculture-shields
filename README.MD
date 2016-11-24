@@ -27,3 +27,5 @@ $ sbt stage deployHeroku
   
 `herokuApp` can be passed as an environment variable to set where you want to deploy. By default,
 we deploy to an app called `culture-badge-test`.
+
+Alternatively: [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
